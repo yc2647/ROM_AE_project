@@ -1,0 +1,25 @@
+import pickle 
+import numpy as ny
+
+# search file x y z
+list_xyz = ["x", "y", "z"]
+
+# calcualte 
+answer_xyz = []
+
+for i in range(900):
+    pow_num = 0
+    for j in list_xyz:
+        
+        file_name = './dis_'+ j + '/dis_' + j +'_' + str(i)
+        
+        with open(file_name,'rb') as dis:    #pickle open file
+            dis = pickle.load(dis)
+        #print(pow(dis,2))
+        pow_num += pow(dis,2)        #power_number= power_number + pow(dis,2)
+        #sqrt(pow(dix_x_i[j],2)+pow(dix_y_i[j],2)+pow(dix_z_i[j],2))
+        
+    sqrt_num = np.sqrt(pow_num)
+    answer_xyz.append(sqrt_num)
+
+print(answer_xyz)
